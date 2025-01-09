@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'Register/Styles.css' %}">
+</head>
+<body>
+<div class="form-container">
+    <form method="post">
+        {%csrf_token%}
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">SignIn</button>
+        </div>
+        <p>Don't have an account, click <a href="/">here</a> to signup</p>
+
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </form>
+
+</div>
+
+</body>
+</html>
